@@ -1,0 +1,81 @@
+window:
+  padding:
+    x: 12
+    y: 12
+  dimensions:
+    columns: 0
+    lines: 0
+  decorations: full
+  startup_mode: Windowed
+scrolling:
+  history: 10000
+  multiplier: 1
+
+  offset:
+    x: 0
+    y: 0
+
+  glyph_offset:
+    x: 0
+    y: -1
+  use_thin_strokes: true
+
+draw_bold_text_with_bright_colors: false
+
+font:
+  normal:
+    family: JetBrainsMono Nerd Font
+  size: 16
+
+  bell:
+  animation: EaseOutExpo
+  duration: 1
+  color: '0x333333'
+
+mouse_bindings:
+  - { mouse: Middle, action: PasteSelection }
+
+mouse:
+  double_click: { threshold: 300 }
+  triple_click: { threshold: 300 }
+
+  hide_when_typing: true
+
+
+selection:
+  semantic_escape_chars: ",‚îÇ`|:\"' ()[]{}<>"
+
+  save_to_clipboard: false
+
+window.dynamic_title: true
+
+cursor:
+  style: Block
+
+  unfocused_hollow: true
+
+live_config_reload: true
+
+working_directory: None
+
+enable_experimental_conpty_backend: false
+
+alt_send_esc: true
+
+debug:
+  render_timer: false
+
+  persistent_logging: false
+
+  log_level: Warn
+
+  print_events: false
+
+
+env:
+  TERM: alacritty
+
+
+import:
+  - ~/.config/alacritty/gruber_darker.yml
+

@@ -1,0 +1,187 @@
+{
+    "position": "top",
+    "height": 28, // Waybar height (to be removed for auto height)
+    "modules-left": ["custom/logo", "sway/workspaces"],
+    "modules-center": ["wlr/taskbar"],
+    "modules-right": ["memory", "pulseaudio", "network", "clock", "battery"],
+
+    "custom/separator": {
+        "format": "" 
+      },
+    "custom/max": {
+        "format": "󰝤",
+    	"tooltip-format": "maximize",
+        "on-click": "swaymsg fullscreen"
+    },
+    "custom/search": {
+      "format": "  <span foreground='#6e95bd'></span>   Search           ",
+      "on-click": "rofi -show drun"
+    },
+    "custom/min": {
+        "format": "",
+    	"tooltip-format": "minimize",
+        "on-click": "swaymsg move scratchpad"
+    },
+    "custom/close": {
+        "format": "",
+    	"tooltip-format": "close",
+        "on-click": "swaymsg kill"
+    },
+	"sway/workspaces": {
+		"disable-scroll": true,
+		"all-outputs": true,
+		"format": "{icon}",
+	 	"persistent_workspaces": {
+	 		"1": [],
+	 		"2": [],
+	 		"3": [],
+	 		"4": [],
+	 		"5": []
+	}
+     },
+    "wlr/taskbar": {
+    	// "format": "{icon}   {app_id} ",
+    	"format": "{icon}",
+    	"tooltip-format": "{title}",
+    	"on-click": "activate",
+    	"on-click-middle": "minimize",
+    	"on-click-right": "close",
+    },
+  "custom/power": {
+    "tooltip": false,
+    "format": "",
+    "on-click": "~/.local/bin/powermenu"
+  },
+
+    "custom/hour": {
+      "interval": 60,
+      "exec": "date '+%H'",
+      "tooltip": false
+    },
+    "custom/mins": {
+      "interval": 60,
+      "exec": "date '+%M'",
+      "tooltip": false
+    },
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+	"format": "{:%I : %M}",
+	"format-alt": "{:%A, %B %d, %Y}"
+    },
+    "custom/logo": {
+    	"format": " ",
+	"on-click": "rofi -show drun"
+    },
+    "memory": {
+        "format": "{}%  "
+    },
+    "temperature": {
+        "critical-threshold": 80,
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": [" ", " ", " "]
+    },
+    "backlight": {
+        "format": "{icon} {percent}",
+        "format-icons": [ "", "", "", "", "", "" ],
+        "on-scroll-up": "light -A 1",
+        "on-scroll-down": "light -U 1"
+    },
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 20
+        },
+        "format": "{icon}  {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["", "", "", "", ""]
+    },
+
+    "network": {
+        "interface": "wlp2s0", // Must change interface/logial name. "lshw -C network" can be used in a terminal. 
+        "format-wifi": "󰤨 ",
+        "format-ethernet": "{ifname}: {ipaddr}/{cidr}  ",
+        "format-linked": "{ifname} (No IP)  ",
+        "format-disconnected": "睊 ",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "tooltip-format": "{essid}",
+    },
+    "tray": {
+        "icon-size": 20,
+        "spacing": 10
+    },
+      // "pulseaudio": {
+      //   "format": "{icon} {volume}% {format_source}",
+      //   "format-bluetooth": "{icon} {format_source}",
+      //   "format-bluetooth-muted": " {icon} 0% {format_source}",
+      //   "format-muted": " 0% {format_source}",
+      //   "format-source": "  {volume}%",
+      //   "format-source-muted": "  0%",
+      //   "format-icons": {
+      //     "headphone": " ",
+      //     "hands-free": "蓼",
+      //     "headset": "蓼",
+      //     "phone": "",
+      //     "portable": "",
+      //     "car": "",
+      //     "default": ["", "", ""] // 醙
+      //   },
+      //   "on-click": "pavucontrol"
+      // },
+        "pulseaudio": {
+              "format": "{icon} {volume}",
+              "format-icons": {
+                "headphones": [
+                  " ",
+                  " ",
+                  " ",
+                  " "
+                ],
+                "default": [
+                  "",
+                  "",
+                  "",
+                  ""
+                ],
+                "speaker": [
+                  " ",
+                  " ",
+                  " ",
+                  " "
+                ],
+              },
+              "format-muted": " {volume}",
+            },
+          },
+    "custom/tiramisu": {
+      "exec": "~/.config/waybar/scripts/polytiramisu.sh",
+      "format": "{output}",
+      "interval": 60,
+      "return-type": "json"
+    },
+    "custom/media": {
+        "format": "{icon} {}",
+        "return-type": "json",
+        "max-length": 40,
+        "format-icons": {
+            "spotify": "  ",
+            "default": "  "
+        },
+        "escape": true,
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null",
+        "on-click": "playerctl play-pause",
+    },
+    "custom/fans": {
+        "format": "{}",
+        "exec": "$HOME/.config/waybar/fans.sh",
+        "escape": true,
+        "restart-interval": 10,
+    },
+    "custom/bluetooth": {
+      "format": "",
+       "on-click": "$HOME/.local/bin/rofi-bluetooth",
+    }
+}
+
