@@ -1,0 +1,93 @@
+@theme "/dev/null"
+
+* {
+	bg: #1E1E1E;  
+	background-color: @bg;
+}
+
+
+configuration {
+	show-icons: true;
+	icon-theme: "Papirus";
+	location: 0;
+	font: "JetBrains Mono Nerd Font 12";	
+	display-drun: "Launch:";
+}
+
+window { 
+	width: 35%;
+	transparency: "real";
+	orientation: vertical;
+	border-color: #D4D4D4;
+  border: 1 1 1 1;
+}
+
+mainbox {
+	children: [inputbar, listview];
+}
+
+
+// ELEMENT
+// -----------------------------------
+
+element {
+	padding: 4 12;
+	text-color: #D4D4D4;
+}
+
+element selected {
+	background-color: #D4D4D4;
+  text-color: #1E1E1E;
+}
+
+element-text {
+	background-color: inherit;
+	text-color: inherit;
+}
+
+element-icon {
+	size: 16 px;
+	background-color: inherit;
+	padding: 0 6 0 0;
+	alignment: vertical;
+}
+
+listview {
+	columns: 2;
+	lines: 9;
+	padding: 8 0;
+	fixed-height: true;
+	fixed-columns: true;
+	fixed-lines: true;
+	border: 0 10 6 10;
+}
+
+// INPUT BAR 
+//------------------------------------------------
+
+entry {
+	text-color: #D4D4D4;
+	padding: 10 10 0 0;
+	margin: 0 -2 0 0;
+}
+
+inputbar {
+	background-image: url("~/.config/rofi/Pictures/retro_catppuccin.png", width);
+	padding: 180 0 0;
+	margin: 0 0 0 0;
+} 
+
+prompt {
+	text-color: #D4D4D4;
+	padding: 10 6 0 10;
+	margin: 0 -2 0 0;
+}
+
+
+
+
+
+
+
+
+

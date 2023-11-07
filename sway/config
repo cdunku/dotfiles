@@ -23,7 +23,7 @@ set $menu rofi -show drun
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
-output * bg ~/Pictures/Wallpaper/dark-mountain-wallpapers.jpg fill
+output * bg ~/Pictures/Wallpaper/IBM-hq.jpg fill
 #
 # Example configuration:
 #
@@ -44,7 +44,15 @@ output * bg ~/Pictures/Wallpaper/dark-mountain-wallpapers.jpg fill
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 
-bindsym --release Print exec grim ~/Pictures/Screenshots-$(date +%F_%H-%M-%S).png
+bindsym --release Print exec grim ~/Pictures/Screenshots/-$(date +%F_%H-%M-%S).png
+
+
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+
+bindsym XF86MonBrightnessUp exec sudo light -A 10
+bindsym XF86MonBrightnessDown exec sudo light -U 10
 
 ### Input configuration
 #
@@ -198,9 +206,9 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 2 
 
-client.focused "#ffffff" "#ffffff" "#ffffff"
+client.focused "#D4D4D4" "#1E1E1E" "#D4D4D4"
 
 #
 # Status Bar:
