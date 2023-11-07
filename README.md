@@ -19,5 +19,5 @@ The theme of this rice is heavily inspired by the [Emacs colorscheme](https://gi
 
 ![VSCode Rofi](Pictures/VSCode-Theme-Rofi.png)
 
-![VSCode Terminal](Pictures/VSCode\Theme-with-terminal.png)
+![VSCode Terminal](Pictures/VSCode-Theme-with-terminal.png)
   
